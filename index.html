@@ -104,8 +104,8 @@ function cadastrar(){
 function acessar(){
   db.collection("turmaA").doc(cpf_cliente.value).get().then((snapshot)=>{
     let aluno = snapshot.data()
-    console.log(aluno.id)
    name.value = aluno.nome
+   celular.value = aluno.celular
   })
 }
 
