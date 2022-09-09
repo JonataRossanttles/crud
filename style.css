@@ -24,7 +24,7 @@ body{
 }
 .label{
     font-family: 'Kumbh Sans', sans-serif;
-    margin-right: 5px;
+    margin-bottom: 30px;
 }
 .container-cadastro{
     position: absolute;
@@ -112,4 +112,9 @@ p{
     position: absolute;
     top: -20px;
     right: 0px;
+}
+@media  screen and (max-width:1200px){
+.container-cadastro{
+    width: 100%;
+}
 }
