@@ -25,6 +25,7 @@ body{
 .label{
     font-family: 'Kumbh Sans', sans-serif;
     margin-bottom: 30px;
+   
 }
 .container-cadastro{
     position: absolute;
@@ -119,3 +120,25 @@ p{
     border-radius: 0;
 }
 }
+@media  screen and (max-width:600px){
+   .cadastros{
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+    align-items: center;
+    position: relative;
+    
+   }
+   .cadastro:not(:last-child){
+    margin-bottom: 30px;
+   }
+   .titulo{
+    margin-top: 20px;
+    margin-bottom: 30px;
+   }
+   #cpf{
+    margin-left: 10px;
+   }
+  
+    }
