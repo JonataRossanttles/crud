@@ -116,5 +116,6 @@ p{
 @media  screen and (max-width:1200px){
 .container-cadastro{
     width: 100%;
+    border-radius: 0;
 }
 }
