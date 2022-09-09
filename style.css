@@ -1,0 +1,115 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+.caixa{
+padding: 10px;
+border-radius: 10px;
+border: solid 1px;
+}
+body{
+    background-image: url("imagens-firebase/pexels-photo-3293148.jpeg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.titulo{
+    text-align: center;
+    margin-top: 90px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.label{
+    font-family: 'Kumbh Sans', sans-serif;
+    margin-right: 5px;
+}
+.container-cadastro{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);    
+    width: 50vw;
+    height: 70vh;
+    border: solid 1px white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.907);
+}
+.cadastros{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.cadastro:not(:last-child){
+    margin-right: 10px;
+}
+.container-button{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.button{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100px;
+    background-color: white;
+    border: solid 1px;
+    text-align: center;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.button:hover{
+    background-color: rgba(0, 0, 0, 0.123);
+    
+}
+.button:not(:last-child){
+    margin-right: 30px;
+}
+.mostrar{
+    display: block;
+}
+.ocultar{
+    display: none;
+}
+.fundo-sucesso{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.348);
+    display: none;
+}
+.container-cadastro-sucesso{
+    background-color: white;
+    position: relative;
+   margin: auto;
+   margin-top: 250px;
+   width: 30%;
+   height: 30%;
+   border-radius: 10px;
+}
+p{
+    font-family: 'Kumbh Sans', sans-serif;
+    text-align: center;
+    top: 50%;
+    position: absolute;
+    font-size: 1.3rem;
+    width: 100%;
+
+}
+.fechar{
+    font-family: 'Kumbh Sans', sans-serif;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    top: -20px;
+    right: 0px;
+}

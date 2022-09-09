@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Firebase</title>
+</head>
+
+<body>
+  <div class="container-cadastro">
+    <h1 class="titulo">Cadastro de Clientes</h1>
+    <div class="cadastros">
+  <div class="cadastro"><label for="" class="label"> Cpf:</label> 
+    <input type="number" name="cpf_cliente" id="cpf" placeholder="Cpf" class="caixa"></div>
+  <div class="cadastro"> <label for="" class="label"> Nome:</label>
+    <input type="text" id="nome" placeholder="Nome Completo" class="caixa" ></div>
+  <div class="cadastro"> <label for="" class="label"> Celular:</label>
+    <input type="number" id="celular" placeholder="Celular" class="caixa"></div>
+  </div>
+   
+  </div>
+  
+</div>
+  <div class="container-button">
+    <div class="button" id="bt">CADASTRAR</div>
+    <div class="button" id="bt2"> ACESSAR</div>
+</div>
+<!--Container da caixa de sucesso-->
+<div class="fundo-sucesso">
+  <div class="container-cadastro-sucesso">
+    <div class="fechar">X</div>
+    <p>Cadastro Realizado com sucesso!</p>
+  </div>
+
+
+   
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+  apiKey: "AIzaSyBooVs_XPoybRfADxhmrdqKuFJfKfX3vik",
+  authDomain: "colegio-3e46d.firebaseapp.com",
+  projectId: "colegio-3e46d",
+  storageBucket: "colegio-3e46d.appspot.com",
+  messagingSenderId: "227644157075",
+  appId: "1:227644157075:web:bfeaf531fb016baa91f166",
+  measurementId: "G-GP0GXXK6BC"
+};
+firebase.initializeApp(firebaseConfig)
+firebase.firestore().settings({
+        experimentalForceLongPolling: true,
+        merge: true,
+      });
+      const TURMA = "turmaA"
+const db = firebase.firestore()
+// Ler todos os dados da minha coleção
+//db.collection("turmaA").get()
+  //                      .then((snapshot)=>{
+//
+  //                          snapshot.forEach((doc)=>{
+    //                            let aluno = doc.data()
+    //                          console.log(doc.data())
+                            
+    //                    })
+          //              })
+// Adicionar um documento a minha coleção
+//db.collection(TURMA).add({nome: "Celso", sobrenome: "silva"})
+
+//db.collection(TURMA).doc("novoaluno").set({nome: "Maria", notas:{nota1:7.5, nota2:8.6}})
+//db.collection("turmaA").doc("novoaluno").update({nome:"João"}).then(console.log("Cadastro atualizado com sucesso!"))
+
+//db.collection("turmaA").doc("novoaluno").set({nome:"João",sobrenome:"Silveira",notas:{nota1:2.5,nota2:4.5}}).then(()=>{
+ //conselo.log("Documento criado com Sucesso!")})
+
+let cpf_cliente = document.getElementById("cpf")
+let fechar = document.getElementsByClassName("fechar")[0]
+let fundo_sucesso = document.getElementsByClassName("fundo-sucesso")[0]
+let name = document.getElementById("nome")
+let celular = document.getElementById("celular")
+let bt = document.getElementById("bt")
+let bt2 = document.getElementById("bt2")
+bt.addEventListener("click",cadastrar)
+bt2.addEventListener("click",acessar)
+fechar.addEventListener("click",fecha)
+const novodoc = cpf_cliente.value
+
+
+
+
+function cadastrar(){
+  if(cpf_cliente.value=="" || name.value=="" || celular.value ==""){
+    alert("Preencha todos os campos!")
+  }else{ db.collection("turmaA").doc(cpf_cliente.value).set({cpf:parseInt(cpf_cliente.value),nome:name.value,celular:parseInt(celular.value)})
+  cpf_cliente.value =""
+  name.value = ""
+  celular.value = ""
+  fundo_sucesso.style.display = "block"}
+  
+}
+function acessar(){
+  db.collection("turmaA").doc(cpf_cliente.value).get().then((snapshot)=>{
+    let aluno = snapshot.data()
+    console.log(aluno.id)
+   name.value = aluno.nome
+  })
+}
+
+function fecha(){
+  fundo_sucesso.style.display = "none"
+}
+ 
+
+    </script>
+
+    
+</body>
+
+
+
+
+
+
+
+    
+
+</html>
