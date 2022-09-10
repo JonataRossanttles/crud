@@ -10,7 +10,7 @@ border-radius: 10px;
 border: solid 1px;
 }
 body{
-    background-image: url("imagens-firebase/cidad2.jpeg");
+    background-image: url("imagens-firebase/cidade4.jpeg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -36,7 +36,7 @@ body{
     height: 70vh;
     border: solid 1px white;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.907);
+    background-color: rgba(255, 255, 255, 0.955);
     overflow: auto;
 }
 .cadastros{
