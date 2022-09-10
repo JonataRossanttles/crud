@@ -16,7 +16,7 @@
     <input type="number" name="cpf_cliente" id="cpf" placeholder="Cpf" class="caixa"></div>
   <div class="cadastro"> <label for="" class="label"> NOME:</label>
     <input type="text" id="nome" placeholder="Nome Completo" class="caixa" ></div>
-  <div class="cadastro"> <label for="" class="label"> CELULAR:</label>
+  <div class="cadastro"> <label for="" class="label" id="label-celular"> CELULAR:</label>
     <input type="number" id="celular" placeholder="Celular" class="caixa"></div>
   </div>
  
@@ -31,13 +31,13 @@
   <div class="container-fundo-consulta">
     <div class="fechar" id="fechar-consulta">X</div>
     <h1 class="titulo-consulta">Consulta de Clientes</h1>
-    <div class="cadastro-consulta"><label for="" class="label"> CPF:</label> 
+    <div class="cadastro-consulta"><label for="" class="label-consulta"> CPF:</label> 
       <input type="number" name="cpf_cliente" id="cpf-consulta" placeholder="Informe o Cpf Cadastrado" class="caixa-consulta"></div>
-      <div class="cadastro-consulta"><label for="" class="label"> NOME:</label> 
+      <div class="cadastro-consulta"><label for="" class="label-consulta"> NOME:</label> 
         
         <div  id="nome-consulta"  class="caixa-consulta-b"></div>
       </div>
-      <div class="cadastro-consulta"><label for="" class="label"> CELULAR:</label> 
+      <div class="cadastro-consulta"><label for="" class="label-consulta"> CELULAR:</label> 
         <div   id="celular-consulta"  class="caixa-consulta-b"></div>
       </div>
       <div class="container-button-acessar">
@@ -156,6 +156,9 @@ function editar(){
   cpf_cliente.value = cpf_consulta.value
   name.value = name_consulta.innerHTML
   celular.value = celular_consulta.innerHTML
+  cpf_consulta.value = ""
+  name_consulta.innerHTML = ""
+  celular_consulta.innerHTML=""
 
 }
 function deletar(){

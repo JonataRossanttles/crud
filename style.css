@@ -10,7 +10,7 @@ border-radius: 10px;
 border: solid 1px;
 }
 body{
-    background-image: url("imagens-firebase/pexels-photo-3293148.jpeg");
+    background-image: url("imagens-firebase/cidad2.jpeg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -129,14 +129,14 @@ p{
     background-color: white;
     position: relative;
    margin: auto;
-   margin-top: 150px;
+   margin-top: 65px;
    width: 60%;
    height: 70%;
    border-radius: 10px;
 
 }
 .caixa-consulta{
-    margin-top: 50px;
+   
     margin-left: 20px;
     border-radius: 10px;
     border: solid 1px;
@@ -146,10 +146,15 @@ p{
 }
 .cadastro-consulta{
     margin-left: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
 }
 .titulo-consulta{
     text-align: center;
     padding-top: 70px;
+    margin-bottom: 45px;
     font-family: 'Kumbh Sans', sans-serif;
 }
 .caixa-consulta-b{
@@ -175,6 +180,11 @@ margin-bottom: 30px;
     width: 100%;
     
 }
+.label-consulta{
+    margin-bottom: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    align-self: center;
+  }
 @media  screen and (max-width:1200px){
 .container-cadastro{
     width: 100%;
@@ -196,10 +206,28 @@ margin-bottom: 30px;
         padding: 0;
         border-radius: 0;
         overflow: auto;
+        margin-top: 94px;
     }
+  #fechar-consulta{
+    font-family: 'Kumbh Sans', sans-serif;
+    cursor: pointer;
+    color: black;
+    position: absolute;
+    top: 8px;
+   right: 8px;
+  }
+ 
+  .caixa-consulta{
+    margin-top: 0;
+  }
+ 
   
     }
 @media  screen and (max-width:600px){
+ .container-cadastro{
+    height: 75vh;
+ }
+
    .cadastros{
     flex-direction: column;
     top: 0;
@@ -211,6 +239,7 @@ margin-bottom: 30px;
    }
    .cadastro:not(:last-child){
     margin-bottom: 30px;
+    margin-right: 0px;
    }
    .titulo{
     margin-top: 20px;
@@ -224,13 +253,17 @@ margin-bottom: 30px;
     border-radius: 0;
 }
 .container-button{
-    top: 80px;
+    top: 40px;
 }
-#nome{
-    margin-left: 29px;
+.label{
+    margin-bottom: 5px;
 }
 #cpf{
-    margin-left:42px;
+    margin: 0;
+}
+.cadastro{
+    display: flex;
+    flex-direction: column;
 }
   
     }
