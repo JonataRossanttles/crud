@@ -24,6 +24,7 @@
  
   <div class="container-button">
     <div class="button" id="bt">CADASTRAR</div>
+    <div class="button" id="bt3"> ATUALIZAR</div>
     <div class="button" id="bt2"> ACESSAR</div>
 </div>
 </div>
@@ -112,14 +113,17 @@ let celular = document.getElementById("celular")
 let celular_consulta = document.getElementById("celular-consulta")
 let bt = document.getElementById("bt")
 let bt2 = document.getElementById("bt2")
+let bt3 = document.getElementById("bt3")
 let fundo_consulta = document.getElementsByClassName("fundo-consulta")[0]
 bt.addEventListener("click",cadastrar)
 bt2.addEventListener("click",acessar)
+bt3.addEventListener("click",atualizar)
 fechar.addEventListener("click",fecha)
 bt_ver.addEventListener("click",ver)
 bt_editar.addEventListener("click",editar)
 bt_deletar.addEventListener("click",deletar)
 fechar_consulta.addEventListener("click",fecha)
+
 const novodoc = cpf_cliente.value
 
 
@@ -136,6 +140,19 @@ function cadastrar(){
  
   
 }
+
+function atualizar(){
+  db.collection("turmaA").doc(cpf_cliente.value).update({cpf:parseInt(cpf_cliente.value),nome:name.value,celular:parseInt(celular.value)})
+  cpf_cliente.value =""
+  name.value = ""
+  celular.value = ""
+  alert("Atualização Realizada com Sucesso!")
+ 
+  
+}
+
+
+
 function ver(){
   db.collection("turmaA").doc(cpf_consulta.value).get().then((snapshot)=>{
     let aluno = snapshot.data()
@@ -159,6 +176,7 @@ function editar(){
   cpf_consulta.value = ""
   name_consulta.innerHTML = ""
   celular_consulta.innerHTML=""
+  
 
 }
 function deletar(){
