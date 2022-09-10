@@ -24,8 +24,8 @@
  
   <div class="container-button">
     <div class="button" id="bt">CADASTRAR</div>
-    <div class="button" id="bt3"> ATUALIZAR</div>
-    <div class="button" id="bt2"> ACESSAR</div>
+    <div class="button" id="bt3"> SALVAR</div>
+    <div class="button" id="bt2"> PESQUISAR</div>
 </div>
 </div>
 <div class="fundo-consulta">
@@ -44,7 +44,7 @@
       <div class="container-button-acessar">
         <div class="button" id="bt-ver">VER</div>
         <div class="button" id="bt-editar">EDITAR</div>
-        <div class="button" id="bt-deletar"> DELETAR</div>
+        <div class="button" id="bt-deletar"> EXCLUIR</div>
     </div>
   </div>
  
@@ -180,13 +180,20 @@ function editar(){
 
 }
 function deletar(){
+  let retorno = confirm("Deseja Realmente Excluir esse Cadastro?")
+  
+if(retorno==true){
   db.collection("turmaA").doc(cpf_consulta.value).delete().then(()=>{
+    
     alert("Registro Deletado Com Sucesso!")
    
   })
   cpf_consulta.value = ""
     name_consulta.innerHTML = ""
     celular_consulta.innerHTML = ""
+}
+
+
 }
 
 
