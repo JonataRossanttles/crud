@@ -93,8 +93,8 @@ body{
     position: relative;
    margin: auto;
    margin-top: 250px;
-   width: 30%;
-   height: 30%;
+   width: 50%;
+   height: 40%;
    border-radius: 10px;
 }
 p{
@@ -114,11 +114,72 @@ p{
     top: -20px;
     right: 0px;
 }
+
+
+.fundo-consulta{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.348);
+    display: none;
+    
+}
+.container-fundo-consulta{
+    background-color: white;
+    position: relative;
+   margin: auto;
+   margin-top: 150px;
+   width: 60%;
+   height: 70%;
+   border-radius: 10px;
+
+}
+.caixa-consulta{
+    margin-top: 50px;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: solid 1px;
+    padding: 7px;
+    width: 212px;
+    background-color: rgba(0, 0, 0, 0.081);
+}
+.cadastro-consulta{
+    margin-left: 30px;
+}
+.titulo-consulta{
+    text-align: center;
+    padding-top: 70px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.caixa-consulta-b{
+    display: inline-block;
+    width: 200px;
+    border-bottom: solid 1px;
+    font-family: 'Kumbh Sans', sans-serif;
+    text-align: center;
+    
+}
+#nome-consulta{
+    width: 225px;
+}
+.cadastro-consulta:not(:last-child){
+margin-bottom: 30px;
+}
+.container-button-acessar{
+    display: flex;
+    position: relative;
+    top: 30px;
+   justify-content: center;
+    border-radius: 5px;
+    width: 100%;
+    
+}
 @media  screen and (max-width:1200px){
 .container-cadastro{
     width: 100%;
     border-radius: 0;
 }
+
 }
 @media  screen and (max-width:600px){
    .cadastros{
@@ -140,5 +201,9 @@ p{
    #cpf{
     margin-left: 10px;
    }
+   .container-cadastro-sucesso{
+    width: 100%;
+    border-radius: 0;
+}
   
     }

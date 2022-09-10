@@ -12,20 +12,41 @@
   <div class="container-cadastro">
     <h1 class="titulo">Cadastro de Clientes</h1>
     <div class="cadastros">
-  <div class="cadastro"><label for="" class="label"> Cpf:</label> 
+  <div class="cadastro"><label for="" class="label"> CPF:</label> 
     <input type="number" name="cpf_cliente" id="cpf" placeholder="Cpf" class="caixa"></div>
-  <div class="cadastro"> <label for="" class="label"> Nome:</label>
+  <div class="cadastro"> <label for="" class="label"> NOME:</label>
     <input type="text" id="nome" placeholder="Nome Completo" class="caixa" ></div>
-  <div class="cadastro"> <label for="" class="label"> Celular:</label>
+  <div class="cadastro"> <label for="" class="label"> CELULAR:</label>
     <input type="number" id="celular" placeholder="Celular" class="caixa"></div>
   </div>
-   
-  </div>
-  
-</div>
+ 
+
+ 
   <div class="container-button">
     <div class="button" id="bt">CADASTRAR</div>
     <div class="button" id="bt2"> ACESSAR</div>
+</div>
+</div>
+<div class="fundo-consulta">
+  <div class="container-fundo-consulta">
+    <div class="fechar" id="fechar-consulta">X</div>
+    <h1 class="titulo-consulta">Consulta de Clientes</h1>
+    <div class="cadastro-consulta"><label for="" class="label"> CPF:</label> 
+      <input type="number" name="cpf_cliente" id="cpf-consulta" placeholder="Informe o Cpf Cadastrado" class="caixa-consulta"></div>
+      <div class="cadastro-consulta"><label for="" class="label"> NOME:</label> 
+        
+        <div  id="nome-consulta"  class="caixa-consulta-b"></div>
+      </div>
+      <div class="cadastro-consulta"><label for="" class="label"> CELULAR:</label> 
+        <div   id="celular-consulta"  class="caixa-consulta-b"></div>
+      </div>
+      <div class="container-button-acessar">
+        <div class="button" id="bt-ver">VER</div>
+        <div class="button" id="bt-editar">EDITAR</div>
+        <div class="button" id="bt-deletar"> DELETAR</div>
+    </div>
+  </div>
+ 
 </div>
 <!--Container da caixa de sucesso-->
 <div class="fundo-sucesso">
@@ -33,6 +54,7 @@
     <div class="fechar">X</div>
     <p>Cadastro Realizado com sucesso!</p>
   </div>
+ 
 
 
    
@@ -77,15 +99,27 @@ const db = firebase.firestore()
  //conselo.log("Documento criado com Sucesso!")})
 
 let cpf_cliente = document.getElementById("cpf")
+let cpf_consulta = document.getElementById("cpf-consulta")
+let bt_ver = document.getElementById("bt-ver")
+let bt_editar = document.getElementById("bt-editar")
+let bt_deletar = document.getElementById("bt-deletar")
 let fechar = document.getElementsByClassName("fechar")[0]
+let fechar_consulta= document.getElementById("fechar-consulta")
 let fundo_sucesso = document.getElementsByClassName("fundo-sucesso")[0]
 let name = document.getElementById("nome")
+let name_consulta = document.getElementById("nome-consulta")
 let celular = document.getElementById("celular")
+let celular_consulta = document.getElementById("celular-consulta")
 let bt = document.getElementById("bt")
 let bt2 = document.getElementById("bt2")
+let fundo_consulta = document.getElementsByClassName("fundo-consulta")[0]
 bt.addEventListener("click",cadastrar)
 bt2.addEventListener("click",acessar)
 fechar.addEventListener("click",fecha)
+bt_ver.addEventListener("click",ver)
+bt_editar.addEventListener("click",editar)
+bt_deletar.addEventListener("click",deletar)
+fechar_consulta.addEventListener("click",fecha)
 const novodoc = cpf_cliente.value
 
 
@@ -94,27 +128,58 @@ const novodoc = cpf_cliente.value
 function cadastrar(){
   if(cpf_cliente.value=="" || name.value=="" || celular.value ==""){
     alert("Preencha todos os campos!")
-  }else{ db.collection("turmaA").doc(cpf_cliente.value).set({cpf:parseInt(cpf_cliente.value),nome:name.value,celular:parseInt(celular.value)})
+  }  else{ db.collection("turmaA").doc(cpf_cliente.value).set({cpf:parseInt(cpf_cliente.value),nome:name.value,celular:parseInt(celular.value)})
   cpf_cliente.value =""
   name.value = ""
   celular.value = ""
   fundo_sucesso.style.display = "block"}
+ 
   
 }
-function acessar(){
-  db.collection("turmaA").doc(cpf_cliente.value).get().then((snapshot)=>{
+function ver(){
+  db.collection("turmaA").doc(cpf_consulta.value).get().then((snapshot)=>{
     let aluno = snapshot.data()
-   name.value = aluno.nome
-   celular.value = aluno.celular
+   name_consulta.innerHTML = aluno.nome
+   celular_consulta.innerHTML = aluno.celular
+   console.log(cpf_consulta)
   })
+
+
 }
+
+function acessar(){
+  fundo_consulta.style.display = "block"
+  
+}
+function editar(){
+  fundo_consulta.style.display = "none"
+  cpf_cliente.value = cpf_consulta.value
+  name.value = name_consulta.innerHTML
+  celular.value = celular_consulta.innerHTML
+
+}
+function deletar(){
+  db.collection("turmaA").doc(cpf_consulta.value).delete().then(()=>{
+    alert("Registro Deletado Com Sucesso!")
+   
+  })
+  cpf_consulta.value = ""
+    name_consulta.innerHTML = ""
+    celular_consulta.innerHTML = ""
+}
+
 
 function fecha(){
   fundo_sucesso.style.display = "none"
+  fundo_consulta.style.display = "none"
+
 }
+
  
 
     </script>
+
+
 
     
 </body>
